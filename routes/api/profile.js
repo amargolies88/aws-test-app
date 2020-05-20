@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
@@ -8,8 +9,8 @@ const router = express.Router();
 
 // PROFILE IMAGE STORING STARTS
 const s3 = new aws.S3({
-    accessKeyId: 'AKIAVDC7C2T4JTVRRH4F',
-    secretAccessKey: '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',
+    accessKeyId: process.env.AWS_KEY,
+    secretAccessKey: process.env.AWS_SECRET,
     Bucket: 'alan-test-bucket-2'
 });
 
